@@ -8,8 +8,8 @@ import VideoTab from "../ui/VideoTab";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-88px)] flex flex-col items-center pt-20 pb-16 bg-black overflow-hidden">
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+    <section className="relative min-h-[calc(100vh-88px)] flex flex-col items-center pt-8 pb-8 md:pt-20 md:pb-16 bg-black overflow-hidden">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         {/* Tag */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,13 +39,10 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="space-y-2 mb-12 max-w-3xl mx-auto"
+          className="mb-12 max-w-2xl mx-auto"
         >
-          <p className="text-[16px] md:text-md text-gray-300">
-            2D animation, motion graphics, and video editing for startups,{" "}
-          </p>
-          <p className="text-[16px] md:text-md text-gray-300">
-            agencies, and content creators who want work that feels alive.{" "}
+          <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+            2D animation, motion graphics, and video editing for startups, agencies, and content creators who want work that feels alive.
           </p>
         </motion.div>
 
@@ -54,7 +51,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+          className="relative z-10 flex flex-row gap-4 justify-center items-center mb-10"
         >
           <Button variant="secondary" size="lg">
             See Our Work

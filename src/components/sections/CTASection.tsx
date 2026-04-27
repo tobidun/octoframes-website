@@ -5,8 +5,8 @@ import Button from "../ui/Button";
 
 export default function CTASection() {
   return (
-    <section className="relative py-24 bg-black overflow-hidden flex justify-center items-center">
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-8 md:py-24 bg-black overflow-hidden flex justify-center items-center">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-6 lg:px-8">
         {/* Main CTA Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -1,0 +1,107 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useMessages } from "@/hooks/useAdminData";
+
+const NAV_ITEMS = [
+  {
+    path: "/admin/inbox",
+    label: "Inbox",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+        <polyline points="22,6 12,13 2,6" />
+      </svg>
+    ),
+  },
+  {
+    path: "/admin/portfolio",
+    label: "Portfolio",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="7" height="7" />
+        <rect x="14" y="3" width="7" height="7" />
+        <rect x="14" y="14" width="7" height="7" />
+        <rect x="3" y="14" width="7" height="7" />
+      </svg>
+    ),
+  },
+];
+
+export default function AdminSidebar() {
+  const pathname = usePathname();
+  const router = useRouter();
+  
+  // Real-time unread count from TanStack Query
+  const { data: messages = [] } = useMessages();
+  const unreadCount = messages.filter(m => !m.isRead).length;
+
+  const handleSignOut = () => {
+    localStorage.removeItem("admin_authed");
+    router.push("/admin/login");
+  };
+
+  return (
+    <aside className="w-60 flex-shrink-0 h-screen sticky top-0 flex flex-col border-r border-white/[0.06] bg-[#030303] z-50">
+      {/* Logo */}
+      <div className="p-6 border-b border-white/[0.06]">
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_16px_rgba(88,37,216,0.5)]">
+            O
+          </div>
+          <div>
+            <p className="text-white font-semibold text-sm leading-none">Octoframes</p>
+            <p className="text-white/30 text-xs mt-0.5">Admin Studio</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Nav items */}
+      <nav className="flex-1 p-4 space-y-1">
+        <p className="text-white/20 text-[10px] font-black uppercase tracking-[0.3em] mb-4 px-2">
+          Management
+        </p>
+        {NAV_ITEMS.map((item) => {
+          const isActive = pathname === item.path;
+          return (
+            <Link
+              key={item.path}
+              href={item.path}
+              className={`flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-bold transition-all duration-300 group ${
+                isActive
+                  ? "bg-primary-600/15 text-primary-300 border border-primary-500/30"
+                  : "text-white/40 hover:text-white hover:bg-white/[0.04] border border-transparent"
+              }`}
+            >
+              <span className={isActive ? "text-primary-400" : "text-white/30 group-hover:text-white/60 transition-colors"}>
+                {item.icon}
+              </span>
+              {item.label}
+              {item.path === "/admin/inbox" && unreadCount > 0 && (
+                <span className="ml-auto w-5 h-5 rounded-full bg-primary-600 text-white text-[10px] flex items-center justify-center font-black animate-pulse">
+                  {unreadCount}
+                </span>
+              )}
+            </Link>
+          );
+        })}
+      </nav>
+
+      {/* Sign out */}
+      <div className="p-4 border-t border-white/[0.06]">
+        <button
+          onClick={handleSignOut}
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-white/30 hover:text-red-400 hover:bg-red-500/[0.06] border border-transparent hover:border-red-500/20 transition-all duration-300 font-bold"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg>
+          Sign out
+        </button>
+      </div>
+    </aside>
+  );
+}

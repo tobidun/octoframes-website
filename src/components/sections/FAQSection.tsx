@@ -44,8 +44,8 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-8 md:py-24 bg-black overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20">
           {/* Left Column: Heading & Info */}
           <div className="flex flex-col items-start">

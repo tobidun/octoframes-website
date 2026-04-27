@@ -1,19 +1,19 @@
-import Header from "@/components/layout/Header";
 import HeroSection from "@/components/sections/HeroSection";
 import MotionSection from "@/components/sections/MotionSection";
 import BrandsSection from "@/components/sections/BrandsSection";
 import PartnersSection from "@/components/sections/PartnersSection";
-import Footer from "@/components/layout/Footer";
+import FAQSection from "@/components/sections/FAQSection";
+import CTASection from "@/components/sections/CTASection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black font-sans">
-      <Header />
+    <div className="flex flex-col w-full font-sans">
       <HeroSection />
       <MotionSection />
       <BrandsSection />
       <PartnersSection />
-      <Footer />
+      <CTASection />
+      <FAQSection />
     </div>
   );
 }

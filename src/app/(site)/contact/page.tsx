@@ -1,9 +1,7 @@
-import Header from "@/components/layout/Header";
 import ContactHeroSection from "@/components/sections/ContactHeroSection";
 import ContactFormSection from "@/components/sections/ContactFormSection";
 import FAQSection from "@/components/sections/FAQSection";
 import CTASection from "@/components/sections/CTASection";
-import Footer from "@/components/layout/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,13 +12,11 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-black font-sans">
-      <Header />
+    <div className="flex flex-col w-full font-sans">
       <ContactHeroSection />
       {/* ContactFormSection is now rendered internally by ContactHeroSection */}
       <FAQSection />
       <CTASection />
-      <Footer />
     </div>
   );
 }

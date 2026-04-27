@@ -103,20 +103,20 @@ const services = [
 
 export default function MotionSection() {
   return (
-    <section className="relative py-24 bg-black overflow-hidden border-t border-white/5">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-8 md:py-24 bg-black overflow-hidden border-t border-white/5">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-10 md:mb-24">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm font-bold tracking-[0.3em] text-primary-400 uppercase mb-4 block"
+            className="text-[10px] md:text-sm font-bold tracking-[0.3em] text-primary-400 uppercase mb-2 md:mb-4 block"
           >
             What we do
           </motion.span>
           
-          <TextReveal className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
+          <TextReveal className="text-3xl md:text-6xl lg:text-7xl font-bold text-white mb-3 md:mb-6 tracking-tight">
             Eight arms, four crafts.
           </TextReveal>
 
@@ -125,7 +125,7 @@ export default function MotionSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto"
+            className="text-sm md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
           >
             Every service built to move your brand forward.
           </motion.p>
@@ -140,43 +140,45 @@ export default function MotionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.8 }}
-              whileHover={{ y: -10 }}
-              className="glass relative p-8 md:p-10 rounded-[2.5rem] shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.06)] hover:border-primary-500/30 transition-all duration-500 group overflow-hidden"
+              whileHover={{ y: -5 }}
+              className="relative p-[6px] md:p-2 rounded-[2rem] md:rounded-[2.25rem] bg-[#0a0a0c] border border-white/[0.04] shadow-2xl transition-transform duration-500 group"
             >
-              {/* Card Ambient Glow */}
-              <div className="absolute -inset-px bg-gradient-to-br from-primary-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                {/* Number Index */}
-                <span className="text-xs font-bold tracking-widest text-primary-500/40 mb-8 block font-mono">
-                  {service.id}
-                </span>
-
-                {/* Icon & Title */}
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-primary-500/10 border border-primary-500/20 flex items-center justify-center text-primary-400 group-hover:scale-110 group-hover:bg-primary-500/20 group-hover:border-primary-500/40 transition-all duration-500">
-                    {service.icon}
+              <div className="relative h-full bg-[#050505] rounded-[1.6rem] md:rounded-[1.85rem] border border-primary-500/30 shadow-[inset_0_0_40px_rgba(88,37,216,0.15),0_0_20px_rgba(88,37,216,0.1)] group-hover:border-primary-500/50 group-hover:shadow-[inset_0_0_60px_rgba(88,37,216,0.25),0_0_30px_rgba(88,37,216,0.2)] transition-all duration-500 p-6 md:p-8 overflow-hidden">
+                {/* Card Ambient Glow */}
+                <div className="absolute -inset-px bg-gradient-to-br from-primary-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Top Bar: Icon and Pill */}
+                  <div className="flex items-start justify-between mb-8">
+                    <div className="w-14 h-14 rounded-[14px] bg-[#0d071d] border border-primary-500/30 flex items-center justify-center text-white shadow-[0_0_15px_rgba(88,37,216,0.2),inset_0_0_10px_rgba(88,37,216,0.1)] group-hover:border-primary-500/60 group-hover:shadow-[0_0_20px_rgba(88,37,216,0.4)] transition-all duration-500">
+                      {service.icon}
+                    </div>
+                    <div className="px-4 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] text-[13px] font-medium text-gray-300 tracking-wide">
+                      {service.id}
+                    </div>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                    {service.title}
-                  </h3>
-                </div>
 
-                {/* Description */}
-                <p className="text-gray-400 text-lg leading-relaxed mb-10 min-h-[5rem]">
-                  {service.description}
-                </p>
+                  {/* Content: Title & Description */}
+                  <div className="mb-auto">
+                    <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight mb-4 group-hover:text-primary-400 transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-[#88888b] text-base md:text-[17px] leading-relaxed mb-8">
+                      {service.description}
+                    </p>
+                  </div>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-x-6 gap-y-3 pt-6 border-t border-white/[0.05]">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-sm font-medium text-gray-500 group-hover:text-gray-300 transition-colors duration-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {/* Bottom Tags */}
+                  <div className="flex flex-wrap gap-3 mt-auto">
+                    {service.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-5 py-2 rounded-full border border-white/[0.05] bg-white/[0.02] text-sm font-medium text-[#aaaaac] group-hover:border-white/[0.1] transition-colors duration-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
