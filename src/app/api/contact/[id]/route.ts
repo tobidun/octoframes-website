@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { NextResponse } from "next/server";
 import { getDbConnection } from "@/lib/db";
 import { ContactMessage } from "@/entities/ContactMessage";

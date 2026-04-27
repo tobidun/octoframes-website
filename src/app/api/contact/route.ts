@@ -14,8 +14,7 @@ export async function POST(req: Request) {
 
     const dataSource = await getDbConnection();
     
-    // Use the entity name string as a fallback to avoid class identity issues in hot-reloading
-    const messageRepository = dataSource.getRepository<ContactMessage>("ContactMessage");
+    const messageRepository = dataSource.getRepository(ContactMessage);
     
     const newMessage = messageRepository.create({
       firstName,
@@ -41,7 +40,7 @@ export async function POST(req: Request) {
 export async function GET() {
   try {
     const dataSource = await getDbConnection();
-    const messageRepository = dataSource.getRepository<ContactMessage>("ContactMessage");
+    const messageRepository = dataSource.getRepository(ContactMessage);
     
     const messages = await messageRepository.find({
       order: { createdAt: "DESC" },
