@@ -5,9 +5,14 @@ import { useRef, useState } from "react";
 interface MediaUploadProps {
   onUpload: (url: string) => void;
   label?: string;
+  accept?: string;
 }
 
-export default function MediaUpload({ onUpload, label = "Upload Media" }: MediaUploadProps) {
+export default function MediaUpload({ 
+  onUpload, 
+  label = "Upload Media",
+  accept = "image/*,video/*" 
+}: MediaUploadProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isUploading, setIsUploading] = useState(false);
 
@@ -69,7 +74,7 @@ export default function MediaUpload({ onUpload, label = "Upload Media" }: MediaU
         ref={fileInputRef}
         onChange={handleUpload}
         className="hidden"
-        accept="image/*,video/*"
+        accept={accept}
       />
       
       <button

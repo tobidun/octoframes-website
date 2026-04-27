@@ -1,0 +1,165 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
+
+export default function BlogDetailPage() {
+  const params = useParams();
+  const id = params?.id as string;
+  const router = useRouter();
+  const [post, setPost] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchPost() {
+      try {
+        const { id: postId } = await (params as any);
+        const res = await fetch(`/api/blog/${postId}`);
+        const data = await res.json();
+        if (data.post) {
+          setPost(data.post);
+        } else if (res.status === 404) {
+          router.push("/blog");
+        }
+      } catch (err) {
+        console.error("Failed to fetch blog post:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    if (params) fetchPost();
+  }, [params, router]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-black flex justify-center items-center">
+        <div className="w-10 h-10 border-4 border-primary-500/30 border-t-primary-500 rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (!post) return null;
+
+  return (
+    <div className="min-h-screen bg-[#05020a] pt-24 pb-16 overflow-x-hidden relative">
+      {/* Intense Background Glows */}
+      <div className="absolute top-[30%] left-[-10%] w-[80%] h-[700px] bg-[#5825d8]/40 blur-[180px] rounded-full pointer-events-none -translate-y-1/2 z-0 mix-blend-screen" />
+      <div className="absolute top-[20%] right-[-10%] w-[50%] h-[600px] bg-[#471fc7]/30 blur-[150px] rounded-full pointer-events-none z-0 mix-blend-screen" />
+
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-12 md:gap-8">
+            {/* Left Section */}
+            <div className="flex flex-col md:w-[55%]">
+              <div className="inline-flex items-center gap-3 px-1 py-1 rounded-full bg-[#111] border border-white/5 w-fit mb-4">
+                <span className="px-3 py-1 rounded-full bg-[#5825d8] text-[10px] font-bold text-white uppercase tracking-wider">
+                  DATE
+                </span>
+                <span className="text-sm font-medium text-white/60 pr-4">
+                  {post.createdAt
+                    ? new Date(post.createdAt).toLocaleDateString("en-GB")
+                    : "16/09/2024"}
+                </span>
+              </div>
+
+              <h1 className="text-5xl md:text-[5.5rem] font-medium text-white mb-6 leading-[1.1] tracking-tight">
+                {post.title}
+              </h1>
+
+              <p className="text-white/60 text-base md:text-[17px] max-w-lg leading-relaxed">
+                {post.excerpt ||
+                  "Insightful thoughts and behind-the-scenes looks into the world of motion design and digital creativity."}
+              </p>
+
+              <div className="flex flex-wrap gap-3 mt-8">
+                <span className="px-6 py-2 rounded-full border border-white/10 bg-white/5 text-[15px] text-white/80 hover:bg-white/10 transition-colors backdrop-blur-sm">
+                  {post.category}
+                </span>
+              </div>
+            </div>
+
+            {/* Right Section (Glass Card) */}
+            <div className="w-full md:w-[40%] flex justify-end">
+              <div className="w-full max-w-[420px] rounded-[16px] border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_20px_rgba(88,37,216,0.1)] hover:bg-white/10 transition-colors duration-500">
+                <div className="flex flex-col">
+                  {/* Author */}
+                  <div className="relative pb-6 mb-6 after:absolute after:bottom-0 after:left-0 after:w-2/3 after:h-[1px] after:bg-gradient-to-r after:from-white/10 after:to-transparent">
+                    <h4 className="text-[14px] text-white/50 mb-2 font-medium">
+                      Author
+                    </h4>
+                    <p className="text-white font-medium text-[17px]">
+                      {post.author || "Octoframes Studio"}
+                    </p>
+                  </div>
+
+                  {/* Category */}
+                  <div className="relative pb-6 mb-6 after:absolute after:bottom-0 after:left-0 after:w-2/3 after:h-[1px] after:bg-gradient-to-r after:from-white/10 after:to-transparent">
+                    <h4 className="text-[14px] text-white/50 mb-2 font-medium">
+                      Category
+                    </h4>
+                    <p className="text-white font-medium text-[17px]">
+                      {post.category}
+                    </p>
+                  </div>
+
+                  {/* Read Time */}
+                  <div>
+                    <h4 className="text-[14px] text-white/50 mb-2 font-medium">
+                      Read Time
+                    </h4>
+                    <p className="text-white font-medium text-[17px]">
+                      {post.readTime || "5 min read"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Article Body */}
+        <div className="w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="max-w-7xl"
+          >
+            {/* Featured Image */}
+            {post.coverImage && (
+              <div className="relative w-full aspect-video md:aspect-[21/9] rounded-md overflow-hidden border border-white/10 shadow-2xl mb-16">
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            )}
+
+            {/* Content Below Image */}
+            <div className="max-w-5xl">
+              <div className="text-white/80 text-lg md:text-xl leading-relaxed font-light tracking-wide space-y-8">
+                {post.content
+                  ?.split("\n\n")
+                  .map((paragraph: string, i: number) => (
+                    <p key={i} className="whitespace-pre-wrap">
+                      {paragraph}
+                    </p>
+                  ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-black pt-16 pb-6 overflow-hidden border-t-2 border-white/[0.08]">
+    <footer className="relative bg-black pt-16 pb-6 overflow-hidden">
       {/* 1. The 'Straight' Vertical Source Core - Balanced */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-[60%] pointer-events-none z-10"
@@ -44,12 +44,12 @@ export default function Footer() {
           background: `
             conic-gradient(
               from 0deg at 50% 0%, 
-              transparent 130deg, 
-              rgba(88,37,216,0.45) 180deg, 
-              transparent 230deg
+              transparent 100deg, 
+              rgba(88,37,216,0.2) 180deg, 
+              transparent 260deg
             )
           `,
-          filter: "blur(80px)",
+          filter: "blur(120px)",
         }}
       />
 
@@ -59,6 +59,8 @@ export default function Footer() {
         style={{
           background:
             "radial-gradient(ellipse at 50% 100%, rgba(88,37,216,0.25) 0%, transparent 100%)",
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 25%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 25%)",
         }}
       />
 
@@ -98,7 +100,7 @@ export default function Footer() {
               Template Pages
             </h4>
             <ul className="space-y-4">
-              {["Home", "About", "Portfolio", "Contact", "FAQ"].map((item) => (
+              {["Home", "About", "Portfolio", "Blog", "Contact", "FAQ"].map((item) => (
                 <li key={item}>
                   <a
                     href="#"

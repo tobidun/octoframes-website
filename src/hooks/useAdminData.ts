@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { Message, Portfolio } from "@/components/admin/types";
+import { Message, Portfolio, Blog } from "@/components/admin/types";
 
 // ─── Messages Hooks ───────────────────────────────────
 
@@ -59,6 +59,31 @@ export function useDeletePortfolio() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["portfolios"] });
+    },
+  });
+}
+
+// ─── Blog Hooks ───────────────────────────────────────
+
+export function useBlogs() {
+  return useQuery<Blog[]>({
+    queryKey: ["blogs"],
+    queryFn: async () => {
+      const res = await fetch("/api/blog/admin"); // We'll create this admin-specific endpoint
+      const data = await res.json();
+      return data.posts || [];
+    },
+  });
+}
+
+export function useDeleteBlog() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (id: number) => {
+      await fetch(`/api/blog/${id}`, { method: "DELETE" });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["blogs"] });
     },
   });
 }

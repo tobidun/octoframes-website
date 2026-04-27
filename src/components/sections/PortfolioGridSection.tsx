@@ -1,14 +1,13 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 
 export default function PortfolioGridSection() {
   const [portfolios, setPortfolios] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedProject, setSelectedProject] = useState<any | null>(null);
 
   useEffect(() => {
     async function fetchPortfolios() {
@@ -25,15 +24,6 @@ export default function PortfolioGridSection() {
     fetchPortfolios();
   }, []);
 
-  // Lock body scroll when modal is open
-  useEffect(() => {
-    if (selectedProject) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [selectedProject]);
-
   return (
     <>
       <section className="relative w-full bg-black pb-12">
@@ -45,189 +35,99 @@ export default function PortfolioGridSection() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 relative z-10">
-          {/* Tab Frame Wrapper */}
-          <div className="relative w-full rounded-md p-2 md:p-3 border border-[#222] bg-black shadow-[0_0_100px_rgba(88,37,216,0.4)]">
-            {/* Inner Content Border & Inset Shadow */}
-            <div className="relative w-full h-full rounded-md border border-primary-500/30 bg-[#050505] shadow-[inset_0_0_40px_rgba(88,37,216,0.15)] p-6 md:p-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {loading ? (
-                  Array(6).fill(0).map((_, i) => (
-                    <div key={i} className="aspect-[4/3] rounded-md bg-white/[0.03] animate-pulse border border-white/[0.05]" />
-                  ))
-                ) : portfolios.length > 0 ? (
-                  portfolios.map((item, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            {loading ? (
+              Array(6)
+                .fill(0)
+                .map((_, i) => (
+                  <div
+                    key={i}
+                    className="relative w-full aspect-[4/3] p-[6px] md:p-2 rounded-[2rem] md:rounded-[2.25rem] bg-[#0a0a0c] border border-white/[0.04] shadow-2xl"
+                  >
+                    <div className="w-full h-full bg-[#050505] rounded-[1.6rem] md:rounded-[1.85rem] border border-primary-500/30 animate-pulse" />
+                  </div>
+                ))
+            ) : portfolios.length > 0 ? (
+              portfolios.map((item, index) => (
+                <Link key={item.id} href={`/portfolio/${item.id}`} className="block">
                   <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    onClick={() => setSelectedProject(item)}
-                    className="relative w-full aspect-[4/3] rounded-md overflow-hidden group cursor-pointer bg-white/[0.03] backdrop-blur-md border border-white/[0.08] transition-all duration-500 hover:border-[#5825d8]/50 hover:shadow-[0_0_30px_rgba(88,37,216,0.2)]"
+                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                    className="relative w-full aspect-[4/3] p-[6px] md:p-2 rounded-md bg-[#0a0a0c] border border-white/[0.04] shadow-2xl transition-transform duration-500 group cursor-pointer hover:-translate-y-1"
                   >
-                    {/* Image Background */}
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
+                    <div className="relative w-full h-full bg-[#050505] rounded-md md:rounded-md border border-primary-500/30 shadow-[inset_0_0_40px_rgba(88,37,216,0.15),0_0_20px_rgba(88,37,216,0.1)] group-hover:border-primary-500/50 group-hover:shadow-[inset_0_0_60px_rgba(88,37,216,0.25),0_0_30px_rgba(88,37,216,0.2)] transition-all duration-500 overflow-hidden">
+                      {/* Card Ambient Glow */}
+                      <div className="absolute -inset-px bg-gradient-to-br from-primary-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
 
-                    {/* The Hover Reveal Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                      {/* Image Background */}
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
 
-                    {/* Details Content (Translates UP on Hover) */}
-                    <div className="absolute inset-x-0 bottom-0 p-3 md:p-4 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
-                      <h3 className="text-sm md:text-base font-bold text-white mb-1 leading-tight text-shadow-sm">
-                        {item.title}
-                      </h3>
+                      {/* The Hover Reveal Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
 
-                      <div className="flex items-center justify-between">
-                        {/* Author / Client */}
-                        <p className="text-white/90 text-xs md:text-[13px] font-medium">
-                          {item.client}
-                        </p>
+                      {/* Details Content (Translates UP on Hover) */}
+                      <div className="absolute inset-x-0 bottom-0 p-5 md:p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out z-20">
+                        <h3 className="text-base md:text-lg font-bold text-white mb-1.5 leading-tight text-shadow-sm">
+                          {item.title}
+                        </h3>
 
-                        {/* Likes and Views Metrics */}
-                        <div className="flex items-center gap-3 text-white font-bold text-xs">
-                          <span className="flex items-center gap-1">
-                            <svg
-                              width="13"
-                              height="13"
-                              viewBox="0 0 24 24"
-                              fill="currentColor"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M1 21H5V9H1V21ZM23 10C23 8.9 22.1 8 21 8H14.68L15.64 3.43L15.67 3.11C15.67 2.7 15.5 2.32 15.23 2.05L14.17 1L7.59 7.59C7.22 7.95 7 8.45 7 9V19C7 20.1 7.9 21 9 21H18.28C19.13 21 19.86 20.48 20.18 19.71L22.86 13.47C22.95 13.22 23 12.96 23 12.69V10Z" />
-                            </svg>
-                            0
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <svg
-                              width="14"
-                              height="14"
-                              viewBox="0 0 24 24"
-                              fill="currentColor"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z" />
-                            </svg>
-                            13
-                          </span>
+                        <div className="flex items-center justify-between">
+                          {/* Author / Client */}
+                          <p className="text-white/90 text-sm md:text-[14px] font-medium">
+                            {item.client}
+                          </p>
+
+                          {/* Likes and Views Metrics */}
+                          <div className="flex items-center gap-3 text-white font-bold text-xs">
+                            <span className="flex items-center gap-1">
+                              <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M1 21H5V9H1V21ZM23 10C23 8.9 22.1 8 21 8H14.68L15.64 3.43L15.67 3.11C15.67 2.7 15.5 2.32 15.23 2.05L14.17 1L7.59 7.59C7.22 7.95 7 8.45 7 9V19C7 20.1 7.9 21 9 21H18.28C19.13 21 19.86 20.48 20.18 19.71L22.86 13.47C22.95 13.22 23 12.96 23 12.69V10Z" />
+                              </svg>
+                              0
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <svg
+                                width="15"
+                                height="15"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z" />
+                              </svg>
+                              13
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </motion.div>
-                ))
-              ) : (
-                <div className="col-span-full py-20 text-center">
-                  <p className="text-white/20 font-bold uppercase tracking-widest">No Projects Found</p>
-                </div>
-              )}
+                </Link>
+              ))
+            ) : (
+              <div className="col-span-full py-20 text-center">
+                <p className="text-white/20 font-bold uppercase tracking-widest">
+                  No Projects Found
+                </p>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
-
-      {/* Project Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex justify-center bg-black/90 backdrop-blur-xl overflow-y-auto"
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedProject(null)}
-              className="fixed top-6 right-6 lg:top-10 lg:right-10 z-[210] w-12 h-12 flex justify-center items-center rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 transition-all text-white border border-white/20 backdrop-blur-md"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-
-            {/* Modal Content Scroll Container */}
-            <div className="w-full max-w-6xl mx-auto py-16 px-4 md:px-8">
-              <motion.div
-                initial={{ y: 40, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="mb-10 text-center"
-              >
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                  {selectedProject.title}
-                </h2>
-                <div className="flex flex-wrap justify-center items-center gap-4 text-gray-300 font-medium">
-                  <span className="px-4 py-1.5 rounded-full border border-primary-500/30 bg-primary-500/10 text-primary-400 text-sm">
-                    {selectedProject.category}
-                  </span>
-                  <span>•</span>
-                  <span>Client: {selectedProject.client}</span>
-                  <span>•</span>
-                  <span>{selectedProject.year}</span>
-                </div>
-              </motion.div>
-
-              {/* Project Collage / Media Reel */}
-              <div className="w-full">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 w-full">
-                  {selectedProject.content.map((media: any, i: number) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.7, delay: 0.2 + i * 0.05 }}
-                      style={{ 
-                        gridColumn: typeof window !== 'undefined' && window.innerWidth > 768 
-                          ? `span ${media.span || 12}` 
-                          : 'span 12' 
-                      }}
-                      className={`relative w-full overflow-hidden rounded-md border border-white/10 bg-[#0a0a0c] ${
-                        (media.span || 12) === 12 ? 'aspect-video' : 
-                        (media.span || 12) >= 6 ? 'aspect-[4/3]' : 
-                        'aspect-square'
-                      }`}
-                    >
-                      {media.type === 'video' ? (
-                        <video 
-                          src={media.src} 
-                          autoPlay 
-                          muted 
-                          loop 
-                          playsInline 
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <Image
-                          src={media.src}
-                          alt={`Project Media ${i + 1}`}
-                          fill
-                          className="object-cover"
-                          sizes={media.span === 12 ? "1200px" : media.span === 6 ? "800px" : "400px"}
-                        />
-                      )}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }

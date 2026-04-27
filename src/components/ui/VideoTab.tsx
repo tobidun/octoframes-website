@@ -5,7 +5,23 @@ import { useState, useEffect } from "react";
 
 export default function VideoTab() {
   const [text, setText] = useState("");
+  const [videoUrl, setVideoUrl] = useState("/hero-videoj.mp4");
   const fullText = "Get started for free";
+
+  useEffect(() => {
+    async function fetchSettings() {
+      try {
+        const res = await fetch("/api/settings");
+        const data = await res.json();
+        if (data.settings?.hero_video_url) {
+          setVideoUrl(data.settings.hero_video_url);
+        }
+      } catch (err) {
+        console.error("Failed to fetch video settings:", err);
+      }
+    }
+    fetchSettings();
+  }, []);
 
   useEffect(() => {
     let currentText = "";
@@ -64,13 +80,14 @@ export default function VideoTab() {
           {/* Video Player */}
           <div className="absolute inset-0 z-10 overflow-hidden">
             <video
+              key={videoUrl}
               autoPlay
               loop
               muted
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src="/hero-videoj.mp4" type="video/mp4" />
+              <source src={videoUrl} type="video/mp4" />
             </video>
           </div>
 

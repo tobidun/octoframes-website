@@ -212,11 +212,12 @@ export default function Header() {
                 </div>
 
                 {/* Bottom CTA Button */}
-                <div className="pb-10">
+                <div className="pb-10 w-full">
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
+                    className="w-full"
                   >
                     <Button
                       variant="primary"
