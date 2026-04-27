@@ -24,4 +24,5 @@ export interface Portfolio {
 export interface ContentItem {
   type: string;
   src: string;
+  span?: number; // 1 (1/3), 2 (2/3), 3 (full)
 }

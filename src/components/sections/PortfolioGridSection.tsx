@@ -4,103 +4,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const PORTFOLIO_ITEMS = [
-  {
-    id: 1,
-    title: "Neon Genesis",
-    category: "3D Animation",
-    client: "TechFlow Inc.",
-    year: "2024",
-    image: "/image-1.jpg",
-    content: [
-      { type: "image", src: "/image-1.jpg" },
-      { type: "image", src: "/image-2.jpg" },
-      { type: "image", src: "/image-3.jpg" },
-      { type: "image", src: "/image-4.jpg" },
-      { type: "image", src: "/image-5.jpg" },
-    ],
-  },
-  {
-    id: 2,
-    title: "Quantum Pay",
-    category: "Motion Graphics",
-    client: "Fintech Co",
-    year: "2024",
-    image: "/image-2.jpg",
-    content: [
-      { type: "image", src: "/image-2.jpg" },
-      { type: "image", src: "/image-3.jpg" },
-      { type: "image", src: "/image-4.jpg" },
-      { type: "image", src: "/image-5.jpg" },
-      { type: "image", src: "/image-6.jpg" },
-    ],
-  },
-  {
-    id: 3,
-    title: "Echo Brand Reveal",
-    category: "VFX & Compositing",
-    client: "Echo Sound",
-    year: "2023",
-    image: "/image-3.jpg",
-    content: [
-      { type: "image", src: "/image-3.jpg" },
-      { type: "image", src: "/image-4.jpg" },
-      { type: "image", src: "/image-5.jpg" },
-      { type: "image", src: "/image-6.jpg" },
-      { type: "image", src: "/image-1.jpg" },
-    ],
-  },
-  {
-    id: 4,
-    title: "Aura Skincare",
-    category: "Product Rendering",
-    client: "Aura Beauty",
-    year: "2023",
-    image: "/image-4.jpg",
-    content: [
-      { type: "image", src: "/image-4.jpg" },
-      { type: "image", src: "/image-5.jpg" },
-      { type: "image", src: "/image-6.jpg" },
-      { type: "image", src: "/image-1.jpg" },
-      { type: "image", src: "/image-2.jpg" },
-    ],
-  },
-  {
-    id: 5,
-    title: "Nexus Cyber",
-    category: "Brand Campaign",
-    client: "Nexus Sec",
-    year: "2025",
-    image: "/image-5.jpg",
-    content: [
-      { type: "image", src: "/image-5.jpg" },
-      { type: "image", src: "/image-6.jpg" },
-      { type: "image", src: "/image-1.jpg" },
-      { type: "image", src: "/image-2.jpg" },
-      { type: "image", src: "/image-3.jpg" },
-    ],
-  },
-  {
-    id: 6,
-    title: "Stellar OS",
-    category: "UI/UX Animation",
-    client: "Stellar Systems",
-    year: "2025",
-    image: "/image-6.jpg",
-    content: [
-      { type: "image", src: "/image-6.jpg" },
-      { type: "image", src: "/image-1.jpg" },
-      { type: "image", src: "/image-2.jpg" },
-      { type: "image", src: "/image-3.jpg" },
-      { type: "image", src: "/image-4.jpg" },
-    ],
-  },
-];
 
 export default function PortfolioGridSection() {
-  const [selectedProject, setSelectedProject] = useState<
-    (typeof PORTFOLIO_ITEMS)[0] | null
-  >(null);
+  const [portfolios, setPortfolios] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedProject, setSelectedProject] = useState<any | null>(null);
+
+  useEffect(() => {
+    async function fetchPortfolios() {
+      try {
+        const res = await fetch("/api/portfolio");
+        const data = await res.json();
+        setPortfolios(data.portfolios || []);
+      } catch (err) {
+        console.error("Failed to fetch portfolios:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPortfolios();
+  }, []);
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -127,7 +50,12 @@ export default function PortfolioGridSection() {
             {/* Inner Content Border & Inset Shadow */}
             <div className="relative w-full h-full rounded-md border border-primary-500/30 bg-[#050505] shadow-[inset_0_0_40px_rgba(88,37,216,0.15)] p-6 md:p-10">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {PORTFOLIO_ITEMS.map((item, index) => (
+                {loading ? (
+                  Array(6).fill(0).map((_, i) => (
+                    <div key={i} className="aspect-[4/3] rounded-md bg-white/[0.03] animate-pulse border border-white/[0.05]" />
+                  ))
+                ) : portfolios.length > 0 ? (
+                  portfolios.map((item, index) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, y: 30 }}
@@ -191,7 +119,12 @@ export default function PortfolioGridSection() {
                       </div>
                     </div>
                   </motion.div>
-                ))}
+                ))
+              ) : (
+                <div className="col-span-full py-20 text-center">
+                  <p className="text-white/20 font-bold uppercase tracking-widest">No Projects Found</p>
+                </div>
+              )}
               </div>
             </div>
           </div>
@@ -250,50 +183,46 @@ export default function PortfolioGridSection() {
               </motion.div>
 
               {/* Project Collage / Media Reel */}
-              <div className="w-full flex flex-col gap-3 md:gap-4">
-                {/* Top 2 Items: Full Width Cinematic Rows */}
-                {selectedProject.content.slice(0, 2).map((media, i) => (
-                  <motion.div
-                    key={`full-${i}`}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.2 + i * 0.1 }}
-                    className="relative w-full aspect-[4/3] md:aspect-video rounded-md overflow-hidden border border-white/10 bg-[#0a0a0c]"
-                  >
-                    <Image
-                      src={media.src}
-                      alt={`${selectedProject.title} Focus ${i + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 1200px"
-                    />
-                  </motion.div>
-                ))}
-
-                {/* Remaining Items: Collage Matrix Layout below the 2nd image */}
-                {selectedProject.content.length > 2 && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.4 }}
-                    className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 w-full max-w-4xl mx-auto"
-                  >
-                    {selectedProject.content.slice(2).map((media, i) => (
-                      <div
-                        key={`collage-${i}`}
-                        className="relative w-full aspect-[4/5] md:aspect-square rounded-md overflow-hidden border border-white/10 bg-[#0a0a0c]"
-                      >
+              <div className="w-full">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 w-full">
+                  {selectedProject.content.map((media: any, i: number) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.7, delay: 0.2 + i * 0.05 }}
+                      style={{ 
+                        gridColumn: typeof window !== 'undefined' && window.innerWidth > 768 
+                          ? `span ${media.span || 12}` 
+                          : 'span 12' 
+                      }}
+                      className={`relative w-full overflow-hidden rounded-md border border-white/10 bg-[#0a0a0c] ${
+                        (media.span || 12) === 12 ? 'aspect-video' : 
+                        (media.span || 12) >= 6 ? 'aspect-[4/3]' : 
+                        'aspect-square'
+                      }`}
+                    >
+                      {media.type === 'video' ? (
+                        <video 
+                          src={media.src} 
+                          autoPlay 
+                          muted 
+                          loop 
+                          playsInline 
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
                         <Image
                           src={media.src}
-                          alt={`${selectedProject.title} Collage ${i + 1}`}
+                          alt={`Project Media ${i + 1}`}
                           fill
                           className="object-cover"
-                          sizes="(max-width: 768px) 50vw, 400px"
+                          sizes={media.span === 12 ? "1200px" : media.span === 6 ? "800px" : "400px"}
                         />
-                      </div>
-                    ))}
-                  </motion.div>
-                )}
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>

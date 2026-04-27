@@ -23,8 +23,8 @@ export default function MessageDetail({ message, onDelete }: MessageDetailProps)
     <AnimatePresence mode="wait">
       <motion.div
         key={message.id}
-        initial={{ opacity: 0, scale: 0.98, Filter: "blur(10px)" }}
-        animate={{ opacity: 1, scale: 1, Filter: "blur(0px)" }}
+        initial={{ opacity: 0, scale: 0.98, filter: "blur(10px)" }}
+        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
         exit={{ opacity: 0, scale: 0.98 }}
         transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
         className="h-full flex flex-col"

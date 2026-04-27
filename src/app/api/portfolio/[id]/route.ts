@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { NextResponse } from "next/server";
 import { getDbConnection } from "@/lib/db";
 import { Portfolio } from "@/entities/Portfolio";
@@ -7,9 +8,9 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
     const { id } = await params;
     const body = await req.json();
     const dataSource = await getDbConnection();
-    const portfolioRepository = dataSource.getRepository(Portfolio);
+    const portfolioRepository = dataSource.getRepository<Portfolio>("Portfolio");
 
-    const portfolio = await portfolioRepository.findOneBy({ id: parseInt(id) });
+    const portfolio = await portfolioRepository.findOneBy({ id: parseInt(id) } as any);
     if (!portfolio) {
       return NextResponse.json({ error: "Portfolio not found" }, { status: 404 });
     }
@@ -28,7 +29,7 @@ export async function DELETE(_req: Request, { params }: { params: Promise<{ id: 
   try {
     const { id } = await params;
     const dataSource = await getDbConnection();
-    const portfolioRepository = dataSource.getRepository(Portfolio);
+    const portfolioRepository = dataSource.getRepository<Portfolio>("Portfolio");
 
     await portfolioRepository.delete({ id: parseInt(id) });
 

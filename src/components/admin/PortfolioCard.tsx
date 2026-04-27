@@ -2,6 +2,7 @@
 
 import { Portfolio } from "./types";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface PortfolioCardProps {
   portfolio: Portfolio;
@@ -24,11 +25,12 @@ export default function PortfolioCard({
       {/* Cinematic Thumbnail Wrapper */}
       <div className="aspect-[16/10] bg-black relative overflow-hidden">
         {portfolio.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={portfolio.image}
             alt={portfolio.title}
-            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+            fill
+            className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center">
