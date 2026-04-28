@@ -46,8 +46,8 @@ export default function BlogDetailPage() {
   return (
     <div className="min-h-screen bg-[#05020a] pt-24 pb-16 overflow-x-hidden relative">
       {/* Intense Background Glows */}
-      <div className="absolute top-[30%] left-[-10%] w-[80%] h-[700px] bg-[#EA7436]/40 blur-[180px] rounded-full pointer-events-none -translate-y-1/2 z-0 mix-blend-screen" />
-      <div className="absolute top-[20%] right-[-10%] w-[50%] h-[600px] bg-[#d45e22]/30 blur-[150px] rounded-full pointer-events-none z-0 mix-blend-screen" />
+      <div className="absolute top-[30%] left-[-10%] w-[80%] h-[700px] bg-[#EA7436]/40 blur-[40px] rounded-full pointer-events-none -translate-y-1/2 z-0 mix-blend-screen" />
+      <div className="absolute top-[20%] right-[-10%] w-[50%] h-[600px] bg-[#d45e22]/30 blur-[40px] rounded-full pointer-events-none z-0 mix-blend-screen" />
 
       <div className="w-full max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <motion.div

@@ -159,8 +159,8 @@ export default function FAQSection() {
       </div>
 
       {/* Background glows */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 w-[50%] h-[70%] bg-primary-600/15 blur-[120px] rounded-full pointer-events-none z-0" />
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[50%] h-[70%] bg-primary-600/15 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 w-[50%] h-[70%] bg-primary-600/15 blur-[40px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[50%] h-[70%] bg-primary-600/15 blur-[40px] rounded-full pointer-events-none z-0" />
     </section>
   );
 }

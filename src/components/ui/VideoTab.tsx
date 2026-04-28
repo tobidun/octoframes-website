@@ -73,7 +73,6 @@ export default function VideoTab() {
       >
         {/* Inner Border Container */}
         <div className="relative w-full h-full rounded-3xl border border-[#333] bg-[#050505] overflow-hidden shadow-[inset_0_0_40px_rgba(234,116,54,0.15)]">
-          
           {/* Border Bloom - perfectly inner-aligned */}
           <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-primary-500/30 pointer-events-none z-20" />
 

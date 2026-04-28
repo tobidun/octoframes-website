@@ -78,11 +78,11 @@ export default function ContactFormSection() {
     <div id="contact-form" className="relative w-full pb-16">
       {/* Primary Color Light Around (Background Glow) - Focused on Top/Sides */}
       {/* Wide base glow for the form frame */}
-      <div className="absolute -top-[10%] md:-top-[15%] -inset-x-10 md:-inset-x-20 h-[80%] bg-primary-600/50 blur-[140px] rounded-[60px] opacity-80 animate-pulse pointer-events-none" />
-      <div className="absolute top-0 -inset-x-2 md:-inset-x-6 h-[40%] bg-primary-500/40 blur-[80px] rounded-[40px] opacity-90 pointer-events-none" />
+      <div className="absolute -top-[10%] md:-top-[15%] -inset-x-10 md:-inset-x-20 h-[80%] bg-primary-600/50 blur-[40px] rounded-[60px] opacity-80 animate-pulse pointer-events-none" />
+      <div className="absolute top-0 -inset-x-2 md:-inset-x-6 h-[40%] bg-primary-500/40 blur-[30px] rounded-[40px] opacity-90 pointer-events-none" />
 
       {/* Focused, narrower glow extending UP to the buttons ONLY in the center */}
-      <div className="absolute -top-[20%] md:-top-[30%] left-1/2 -translate-x-1/2 w-[60%] md:w-[40%] h-[50%] bg-primary-500/60 blur-[120px] rounded-full opacity-100 pointer-events-none" />
+      <div className="absolute -top-[20%] md:-top-[30%] left-1/2 -translate-x-1/2 w-[60%] md:w-[40%] h-[50%] bg-primary-500/60 blur-[40px] rounded-full opacity-100 pointer-events-none" />
 
       {/* Flat Tab Frame — same border/shadow as VideoTab but no rotateX */}
       <motion.div

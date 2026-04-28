@@ -165,7 +165,7 @@ export default function PartnersSection() {
         </div>
 
         {/* Bottom Atmospheric Glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[50%] bg-primary-900/5 blur-[120px] pointer-events-none -z-10" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[50%] bg-primary-900/5 blur-[40px] pointer-events-none -z-10" />
       </div>
     </section>
   );

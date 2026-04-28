@@ -24,7 +24,7 @@ export default function MediaUpload({
     try {
       // 1. Get signature from our API
       const timestamp = Math.round(new Date().getTime() / 1000);
-      const folder = process.env.NEXT_PUBLIC_CLOUDINARY_FOLDER || "motiongads";
+      const folder = process.env.NEXT_PUBLIC_CLOUDINARY_FOLDER || "octoframes";
       
       const signRes = await fetch("/api/cloudinary/sign", {
         method: "POST",

@@ -73,8 +73,8 @@ export default function ContactHeroSection() {
 
       {/* Side ambient glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-[20%] left-[-10%] w-[50%] h-[50%] bg-primary-500/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[50%] h-[50%] bg-primary-500/10 blur-[120px] rounded-full" />
+        <div className="absolute top-[20%] left-[-10%] w-[50%] h-[50%] bg-primary-500/10 blur-[40px] rounded-full" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[50%] h-[50%] bg-primary-500/10 blur-[40px] rounded-full" />
       </div>
     </section>
   );

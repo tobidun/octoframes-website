@@ -16,37 +16,37 @@ export default function CTASection() {
           className="relative w-full rounded-[32px] px-6 py-8 md:px-12 lg:px-24 lg:py-12 overflow-hidden border border-[#222] bg-[#050505] shadow-[0_0_120px_rgba(234,116,54,0.15)] text-center flex flex-col items-center justify-center group"
         >
           {/* Ambient Top Corner Light Splashes - Solid Color */}
-          <motion.div 
+          <motion.div
             animate={{ opacity: [0.4, 0.7, 0.4] }}
-            transition={{ 
+            transition={{
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
             style={{ backgroundColor: "#EA7436" }}
-            className="absolute -top-20 -left-[10%] w-96 h-96 blur-[120px] pointer-events-none" 
+            className="absolute -top-20 -left-[10%] w-96 h-96 blur-[120px] pointer-events-none"
           />
-          <motion.div 
+          <motion.div
             animate={{ opacity: [0.5, 0.8, 0.5] }}
-            transition={{ 
+            transition={{
               duration: 4.5,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 1
+              delay: 1,
             }}
             style={{ backgroundColor: "#EA7436" }}
-            className="absolute -top-20 -right-[10%] w-96 h-96 blur-[120px] pointer-events-none" 
+            className="absolute -top-20 -right-[10%] w-96 h-96 blur-[120px] pointer-events-none"
           />
 
           {/* Image-based Light Beam - Static Glow */}
           <motion.div
-            animate={{ 
-              opacity: [0.6, 0.9, 0.6]
+            animate={{
+              opacity: [0.6, 0.9, 0.6],
             }}
-            transition={{ 
-              duration: 4, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
             }}
             className="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] md:w-full h-[160%] pointer-events-none mix-blend-screen origin-top z-10"
             style={{

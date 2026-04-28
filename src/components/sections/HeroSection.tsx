@@ -20,7 +20,9 @@ export default function HeroSection() {
           <span className="px-3 py-1 bg-primary-600 text-white rounded-full text-[12px] font-bold tracking-wider">
             {new Date().getFullYear()}
           </span>
-          <span className="text-gray-300 text-sm font-medium pr-2">Creative Motion Studio</span>
+          <span className="text-gray-300 text-sm font-medium pr-2">
+            Creative Motion Studio
+          </span>
         </motion.div>
 
         {/* Main heading */}
@@ -42,7 +44,8 @@ export default function HeroSection() {
           className="mb-12 max-w-2xl mx-auto"
         >
           <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-            2D animation, motion graphics, and video editing for startups, agencies, and content creators who want work that feels alive.
+            2D animation, motion graphics, and video editing for startups,
+            agencies, and content creators who want work that feels alive.
           </p>
         </motion.div>
 
@@ -60,12 +63,10 @@ export default function HeroSection() {
             Get a Quote
           </Button>
         </motion.div>
-
       </div>
 
       {/* VideoTab - matched exactly to Header width */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <VideoTab />
       </div>
 

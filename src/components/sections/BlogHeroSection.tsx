@@ -7,7 +7,7 @@ export default function BlogHeroSection() {
   return (
     <section className="relative flex flex-col items-center pt-8 md:pt-16 pb-8 md:pb-12 bg-black overflow-hidden">
       {/* Background Volumetric Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary-500/20 blur-[150px] rounded-[100%] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary-500/20 blur-[40px] rounded-[100%] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         {/* Top Badge */}

@@ -135,7 +135,7 @@ export default function BrandsSection() {
           {/* Right Column: Traits Cards */}
           <div className="relative">
             {/* Background Glow */}
-            <div className="absolute -inset-10 bg-primary-500/5 blur-[100px] pointer-events-none" />
+            <div className="absolute -inset-10 bg-primary-500/5 blur-[40px] pointer-events-none" />
 
             <div className="relative grid grid-cols-1 gap-6">
               {traits.map((trait, index) => (

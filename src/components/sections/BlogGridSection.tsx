@@ -6,7 +6,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Blog } from "@/components/admin/types";
 
-const CATEGORIES = ["All", "Motion Design", "Animation", "Behind the Scenes", "Tips & Tricks", "Industry"];
+const CATEGORIES = [
+  "All",
+  "Motion Design",
+  "Animation",
+  "Behind the Scenes",
+  "Tips & Tricks",
+  "Industry",
+];
 
 export default function BlogGridSection() {
   const [posts, setPosts] = useState<Blog[]>([]);
@@ -160,7 +167,11 @@ export default function BlogGridSection() {
         ) : (
           <div className="flex flex-col items-center justify-center py-32 text-center">
             <div className="w-16 h-16 rounded-full bg-primary-600/10 border border-primary-500/20 flex items-center justify-center mb-6">
-              <svg className="w-7 h-7 text-primary-500/40" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-7 h-7 text-primary-500/40"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
               </svg>
             </div>

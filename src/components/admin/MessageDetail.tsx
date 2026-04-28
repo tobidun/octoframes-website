@@ -71,7 +71,7 @@ export default function MessageDetail({ message, onDelete }: MessageDetailProps)
         {/* The Actual message "Card" */}
         <div className="flex-1 bg-white/[0.02] border border-white/[0.06] rounded-[24px] p-6 md:p-10 relative overflow-hidden group shadow-[inset_0_2px_20px_rgba(255,255,255,0.02)]">
           {/* Subtle decorative glow */}
-          <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary-500/10 blur-[80px] rounded-full group-hover:bg-primary-500/15 transition-all duration-700" />
+          <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary-500/10 blur-[30px] rounded-full group-hover:bg-primary-500/15 transition-all duration-700" />
           
           <span className="text-[9px] font-black text-primary-400/60 uppercase tracking-[0.3em] block mb-6">Subject Message Transcript</span>
           <p className="text-white/80 text-base leading-[1.8] font-medium whitespace-pre-line tracking-tight">

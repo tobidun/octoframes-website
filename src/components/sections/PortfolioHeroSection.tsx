@@ -6,8 +6,12 @@ import Button from "../ui/Button";
 export default function PortfolioHeroSection() {
   return (
     <section className="relative flex flex-col items-center pt-8 md:pt-16 pb-8 md:pb-12 bg-black overflow-hidden">
-      {/* Background Volumetric Glow (Matches Reference Image) */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary-500/20 blur-[150px] rounded-[100%] pointer-events-none" />
+      {/* Volumetric splashes to match Hero Section */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-[20%] left-[-10%] w-[50%] h-[50%] bg-primary-500/10 blur-[120px] rounded-full" />
+        <div className="absolute top-[20%] right-[-10%] w-[50%] h-[50%] bg-primary-500/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary-500/15 blur-[120px] rounded-[100%]" />
+      </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         {/* Top Badge: "2025 Browse Our Work" */}

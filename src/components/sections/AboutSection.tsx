@@ -20,7 +20,7 @@ export default function AboutSection() {
         </motion.div>
 
         {/* Ambient Corner Glow background */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[60%] bg-primary-500/5 blur-[120px] pointer-events-none -z-10" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[60%] bg-primary-500/5 blur-[40px] pointer-events-none -z-10" />
 
         {/* Main heading */}
         <motion.h2
