@@ -69,10 +69,10 @@ export default function VideoTab() {
         }}
         transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1], delay: 0.5 }}
         style={{ transformOrigin: "center bottom" }}
-        className="relative aspect-video w-full rounded-[32px] p-2 md:p-3 border border-[#222] bg-black shadow-[0_0_100px_rgba(88,37,216,0.4)] group"
+        className="relative aspect-video w-full rounded-[32px] p-2 md:p-3 border border-[#222] bg-black shadow-[0_0_100px_rgba(234,116,54,0.4)] group"
       >
         {/* Inner Border Container */}
-        <div className="relative w-full h-full rounded-3xl border border-[#333] bg-[#050505] overflow-hidden shadow-[inset_0_0_40px_rgba(88,37,216,0.15)]">
+        <div className="relative w-full h-full rounded-3xl border border-[#333] bg-[#050505] overflow-hidden shadow-[inset_0_0_40px_rgba(234,116,54,0.15)]">
           
           {/* Border Bloom - perfectly inner-aligned */}
           <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-primary-500/30 pointer-events-none z-20" />

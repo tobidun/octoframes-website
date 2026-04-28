@@ -15,8 +15,8 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-3 px-4 py-1.5 glass rounded-full mb-8 shadow-[0_4px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.06)]"
         >
-          <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(88,37,216,0.6)]"></span>
-          <span className="text-gray-300 text-sm font-medium">About MotionGads</span>
+          <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(234,116,54,0.6)]"></span>
+          <span className="text-gray-300 text-sm font-medium">About Octoframes</span>
         </motion.div>
 
         {/* Ambient Corner Glow background */}

@@ -104,7 +104,7 @@ export default function FAQSection() {
                   transition={{ duration: 0.5, delay: 0.1 * index }}
                   className={`group relative rounded-xl transition-all duration-500 overflow-hidden ${
                     isOpen
-                      ? "glass shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_20px_rgba(88,37,216,0.1)] border-primary-500/30"
+                      ? "glass shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_20px_rgba(234,116,54,0.1)] border-primary-500/30"
                       : "bg-[#08080a] border border-white/[0.04] hover:bg-white/[0.04] hover:border-white/[0.12]"
                   }`}
                 >

@@ -60,7 +60,7 @@ export default function BlogGridSection() {
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat
-                  ? "bg-primary-600 text-white shadow-[0_0_15px_rgba(88,37,216,0.4)]"
+                  ? "bg-primary-600 text-white shadow-[0_0_15px_rgba(234,116,54,0.4)]"
                   : "bg-white/[0.04] text-gray-400 border border-white/[0.06] hover:bg-white/[0.08] hover:text-white"
               }`}
             >
@@ -100,7 +100,7 @@ export default function BlogGridSection() {
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   className="relative w-full aspect-[4/3] p-[6px] md:p-2 rounded-md bg-[#0a0a0c] border border-white/[0.04] shadow-2xl transition-transform duration-500 group cursor-pointer hover:-translate-y-1"
                 >
-                  <div className="relative w-full h-full bg-[#050505] rounded-md md:rounded-md border border-primary-500/30 shadow-[inset_0_0_40px_rgba(88,37,216,0.15),0_0_20px_rgba(88,37,216,0.1)] group-hover:border-primary-500/50 group-hover:shadow-[inset_0_0_60px_rgba(88,37,216,0.25),0_0_30px_rgba(88,37,216,0.2)] transition-all duration-500 overflow-hidden">
+                  <div className="relative w-full h-full bg-[#050505] rounded-md md:rounded-md border border-primary-500/30 shadow-[inset_0_0_40px_rgba(234,116,54,0.15),0_0_20px_rgba(234,116,54,0.1)] group-hover:border-primary-500/50 group-hover:shadow-[inset_0_0_60px_rgba(234,116,54,0.25),0_0_30px_rgba(234,116,54,0.2)] transition-all duration-500 overflow-hidden">
                     {/* Card Ambient Glow */}
                     <div className="absolute -inset-px bg-gradient-to-br from-primary-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
 

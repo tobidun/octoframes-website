@@ -5,9 +5,16 @@ import CTASection from "@/components/sections/CTASection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact — Octoframes Studio",
+  title: "Contact Us",
   description:
-    "Have any doubts? Reach out to Octoframes Studio. We're ready to help with your motion design, animation, and video editing projects.",
+    "Have a project in mind? Reach out to Octoframes Studio. We're ready to help with your motion design, animation, and video production needs.",
+  alternates: { canonical: "https://octoframes.com/contact" },
+  openGraph: {
+    url: "https://octoframes.com/contact",
+    title: "Contact Octoframes Studio",
+    description: "Get in touch with Octoframes — premium motion design and video production.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function ContactPage() {

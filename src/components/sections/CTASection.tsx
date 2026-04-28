@@ -13,7 +13,7 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full rounded-[32px] px-6 py-8 md:px-12 lg:px-24 lg:py-12 overflow-hidden border border-[#222] bg-[#050505] shadow-[0_0_120px_rgba(88,37,216,0.15)] text-center flex flex-col items-center justify-center group"
+          className="relative w-full rounded-[32px] px-6 py-8 md:px-12 lg:px-24 lg:py-12 overflow-hidden border border-[#222] bg-[#050505] shadow-[0_0_120px_rgba(234,116,54,0.15)] text-center flex flex-col items-center justify-center group"
         >
           {/* Ambient Top Corner Light Splashes - Solid Color */}
           <motion.div 
@@ -23,7 +23,7 @@ export default function CTASection() {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            style={{ backgroundColor: "#5825d8" }}
+            style={{ backgroundColor: "#EA7436" }}
             className="absolute -top-20 -left-[10%] w-96 h-96 blur-[120px] pointer-events-none" 
           />
           <motion.div 
@@ -34,7 +34,7 @@ export default function CTASection() {
               ease: "easeInOut",
               delay: 1
             }}
-            style={{ backgroundColor: "#5825d8" }}
+            style={{ backgroundColor: "#EA7436" }}
             className="absolute -top-20 -right-[10%] w-96 h-96 blur-[120px] pointer-events-none" 
           />
 
@@ -56,6 +56,7 @@ export default function CTASection() {
               backgroundRepeat: "no-repeat",
               WebkitMaskImage:
                 "radial-gradient(ellipse at top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)",
+              filter: "sepia(1) saturate(5) hue-rotate(-5deg) brightness(1.4)",
             }}
           />
 

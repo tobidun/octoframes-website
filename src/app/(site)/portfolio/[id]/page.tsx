@@ -45,8 +45,8 @@ export default function PortfolioDetailPage() {
   return (
     <div className="min-h-screen bg-[#05020a] pt-24 pb-16 overflow-x-hidden relative">
       {/* Intense Background Glows matching the image */}
-      <div className="absolute top-[30%] left-[-10%] w-[80%] h-[700px] bg-[#5825d8]/40 blur-[180px] rounded-full pointer-events-none -translate-y-1/2 z-0 mix-blend-screen" />
-      <div className="absolute top-[20%] right-[-10%] w-[50%] h-[600px] bg-[#471fc7]/30 blur-[150px] rounded-full pointer-events-none z-0 mix-blend-screen" />
+      <div className="absolute top-[30%] left-[-10%] w-[80%] h-[700px] bg-[#EA7436]/40 blur-[180px] rounded-full pointer-events-none -translate-y-1/2 z-0 mix-blend-screen" />
+      <div className="absolute top-[20%] right-[-10%] w-[50%] h-[600px] bg-[#d45e22]/30 blur-[150px] rounded-full pointer-events-none z-0 mix-blend-screen" />
 
       <div className="w-full max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <motion.div
@@ -58,7 +58,7 @@ export default function PortfolioDetailPage() {
             {/* Left Section */}
             <div className="flex flex-col md:w-[55%]">
               <div className="inline-flex items-center gap-3 px-1 py-1 rounded-full bg-[#111] border border-white/5 w-fit mb-4">
-                <span className="px-3 py-1 rounded-full bg-[#5825d8] text-[10px] font-bold text-white uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-full bg-[#EA7436] text-[10px] font-bold text-white uppercase tracking-wider">
                   DATE
                 </span>
                 <span className="text-sm font-medium text-white/60 pr-4">
@@ -89,7 +89,7 @@ export default function PortfolioDetailPage() {
 
             {/* Right Section (Glass Card) */}
             <div className="w-full md:w-[40%] flex justify-end">
-              <div className="w-full max-w-[420px] rounded-[16px] border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_20px_rgba(88,37,216,0.1)] hover:bg-white/10 transition-colors duration-500">
+              <div className="w-full max-w-[420px] rounded-[16px] border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_20px_rgba(234,116,54,0.1)] hover:bg-white/10 transition-colors duration-500">
                 <div className="flex flex-col">
                   {/* Services */}
                   <div className="relative pb-6 mb-6 after:absolute after:bottom-0 after:left-0 after:w-2/3 after:h-[1px] after:bg-gradient-to-r after:from-white/10 after:to-transparent">

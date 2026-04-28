@@ -20,7 +20,7 @@ export default function PortfolioCard({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
-      className="group relative rounded-2xl border border-white/[0.08] bg-white/[0.02] overflow-hidden transition-all duration-500 hover:border-primary-500/50 hover:shadow-[0_20px_50px_rgba(88,37,216,0.15)] backdrop-blur-md"
+      className="group relative rounded-2xl border border-white/[0.08] bg-white/[0.02] overflow-hidden transition-all duration-500 hover:border-primary-500/50 hover:shadow-[0_20px_50px_rgba(234,116,54,0.15)] backdrop-blur-md"
     >
       {/* Cinematic Thumbnail Wrapper */}
       <div className="aspect-[16/10] bg-black relative overflow-hidden">

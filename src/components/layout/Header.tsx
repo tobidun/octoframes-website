@@ -145,7 +145,7 @@ export default function Header() {
                 {/* Header Content INSIDE the panel */}
                 <div className="flex items-center justify-between h-[88px] border-b-2 border-white/[0.8]">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-[#5825d8] flex items-center justify-center shadow-[0_0_15px_rgba(88,37,216,0.4)]">
+                    <div className="w-8 h-8 rounded-lg bg-[#EA7436] flex items-center justify-center shadow-[0_0_15px_rgba(234,116,54,0.4)]">
                       <svg
                         width="16"
                         height="16"
@@ -222,7 +222,7 @@ export default function Header() {
                     <Button
                       variant="primary"
                       size="lg"
-                      className="w-full text-base h-14 bg-gradient-to-r from-[#5825d8] to-[#471fc7] border-none shadow-[0_8px_20px_rgba(88,37,216,0.3)] hover:shadow-[0_8px_30px_rgba(88,37,216,0.5)] rounded-2xl"
+                      className="w-full text-base h-14 bg-gradient-to-r from-[#EA7436] to-[#d45e22] border-none shadow-[0_8px_20px_rgba(234,116,54,0.3)] hover:shadow-[0_8px_30px_rgba(234,116,54,0.5)] rounded-2xl"
                       onClick={() => setIsOpen(false)}
                     >
                       Get In Touch

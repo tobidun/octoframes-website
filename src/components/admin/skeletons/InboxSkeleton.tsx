@@ -20,7 +20,7 @@ function MessageItemSkeleton() {
 /** Skeleton for the message detail panel on the right */
 function MessageDetailSkeleton() {
   return (
-    <div className="rounded-[20px] p-1.5 border border-white/[0.06] bg-black/60 backdrop-blur-xl shadow-[0_0_40px_rgba(88,37,216,0.08)]">
+    <div className="rounded-[20px] p-1.5 border border-white/[0.06] bg-black/60 backdrop-blur-xl shadow-[0_0_40px_rgba(234,116,54,0.08)]">
       <div className="rounded-2xl border border-white/[0.06] bg-[#050505]/80 backdrop-blur-md p-8 space-y-6">
         {/* Header */}
         <div className="flex items-start justify-between">

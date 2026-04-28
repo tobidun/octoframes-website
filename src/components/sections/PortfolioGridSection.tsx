@@ -30,8 +30,8 @@ export default function PortfolioGridSection() {
         {/* Intense Top-Focused Glow Engine (Reaches up to Hero Button) */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <div className="absolute -top-[10%] md:-top-[20%] left-1/2 -translate-x-1/2 w-[80%] md:w-[50%] h-[40%] bg-primary-500/40 blur-[120px] rounded-full mix-blend-screen opacity-90 pointer-events-none" />
-          <div className="absolute -top-[5%] md:-top-[10%] left-1/2 -translate-x-1/2 w-[100%] md:w-[80%] h-[50%] bg-[#471fc7]/20 blur-[150px] rounded-[60px] opacity-80 animate-pulse mix-blend-screen pointer-events-none" />
-          <div className="absolute bottom-[10%] right-[5%] w-[40%] h-[40%] bg-[#471fc7]/10 blur-[100px] rounded-full mix-blend-screen" />
+          <div className="absolute -top-[5%] md:-top-[10%] left-1/2 -translate-x-1/2 w-[100%] md:w-[80%] h-[50%] bg-[#d45e22]/20 blur-[150px] rounded-[60px] opacity-80 animate-pulse mix-blend-screen pointer-events-none" />
+          <div className="absolute bottom-[10%] right-[5%] w-[40%] h-[40%] bg-[#d45e22]/10 blur-[100px] rounded-full mix-blend-screen" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 relative z-10">
@@ -57,7 +57,7 @@ export default function PortfolioGridSection() {
                     transition={{ duration: 0.8, delay: index * 0.1 }}
                     className="relative w-full aspect-[4/3] p-[6px] md:p-2 rounded-md bg-[#0a0a0c] border border-white/[0.04] shadow-2xl transition-transform duration-500 group cursor-pointer hover:-translate-y-1"
                   >
-                    <div className="relative w-full h-full bg-[#050505] rounded-md md:rounded-md border border-primary-500/30 shadow-[inset_0_0_40px_rgba(88,37,216,0.15),0_0_20px_rgba(88,37,216,0.1)] group-hover:border-primary-500/50 group-hover:shadow-[inset_0_0_60px_rgba(88,37,216,0.25),0_0_30px_rgba(88,37,216,0.2)] transition-all duration-500 overflow-hidden">
+                    <div className="relative w-full h-full bg-[#050505] rounded-md md:rounded-md border border-primary-500/30 shadow-[inset_0_0_40px_rgba(234,116,54,0.15),0_0_20px_rgba(234,116,54,0.1)] group-hover:border-primary-500/50 group-hover:shadow-[inset_0_0_60px_rgba(234,116,54,0.25),0_0_30px_rgba(234,116,54,0.2)] transition-all duration-500 overflow-hidden">
                       {/* Card Ambient Glow */}
                       <div className="absolute -inset-px bg-gradient-to-br from-primary-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
 

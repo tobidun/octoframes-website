@@ -70,7 +70,7 @@ export default function AdminSidebar() {
       {/* Logo */}
       <div className="p-6 border-b border-white/[0.06]">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_16px_rgba(88,37,216,0.5)]">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_16px_rgba(234,116,54,0.5)]">
             O
           </div>
           <div>

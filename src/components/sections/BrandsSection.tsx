@@ -160,7 +160,7 @@ export default function BrandsSection() {
                   </div>
 
                   {/* Right Content Block (Inner Border + Primary Shadow) */}
-                  <div className="flex-1 rounded-[1.5rem] bg-[#050505] border border-primary-500/30 shadow-[inset_0_0_30px_rgba(88,37,216,0.15),0_0_15px_rgba(88,37,216,0.1)] group-hover:border-primary-500/50 group-hover:shadow-[inset_0_0_40px_rgba(88,37,216,0.25),0_0_20px_rgba(88,37,216,0.2)] transition-all duration-500 p-4 lg:px-6 flex flex-col justify-center sm:flex-row sm:items-center sm:justify-between relative overflow-hidden">
+                  <div className="flex-1 rounded-[1.5rem] bg-[#050505] border border-primary-500/30 shadow-[inset_0_0_30px_rgba(234,116,54,0.15),0_0_15px_rgba(234,116,54,0.1)] group-hover:border-primary-500/50 group-hover:shadow-[inset_0_0_40px_rgba(234,116,54,0.25),0_0_20px_rgba(234,116,54,0.2)] transition-all duration-500 p-4 lg:px-6 flex flex-col justify-center sm:flex-row sm:items-center sm:justify-between relative overflow-hidden">
                     <div>
                       <h3 className="text-lg md:text-xl font-bold text-white tracking-tight mb-0.5 group-hover:text-primary-400 transition-colors duration-300">
                         {trait.label}
@@ -171,7 +171,7 @@ export default function BrandsSection() {
                     </div>
 
                     {/* Action Button (The Purple 'X' from Reference) */}
-                    <div className="hidden sm:flex flex-shrink-0 w-10 h-10 md:w-11 md:h-11 rounded-xl bg-[#5825d8] shadow-[0_4px_15px_rgba(88,37,216,0.4)] items-center justify-center text-white ml-4 group-hover:scale-105 transition-transform duration-300 border border-white/10">
+                    <div className="hidden sm:flex flex-shrink-0 w-10 h-10 md:w-11 md:h-11 rounded-xl bg-[#EA7436] shadow-[0_4px_15px_rgba(234,116,54,0.4)] items-center justify-center text-white ml-4 group-hover:scale-105 transition-transform duration-300 border border-white/10">
                       <svg
                         className="w-4 h-4 flex-shrink-0"
                         fill="none"

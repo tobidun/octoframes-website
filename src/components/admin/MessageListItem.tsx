@@ -20,7 +20,7 @@ export default function MessageListItem({
       onClick={onClick}
       className={`relative w-full text-left p-4 rounded-xl border transition-all duration-300 group ${
         isSelected
-          ? "bg-primary-500/10 border-primary-500/50 shadow-[0_0_20px_rgba(88,37,216,0.1)]"
+          ? "bg-primary-500/10 border-primary-500/50 shadow-[0_0_20px_rgba(234,116,54,0.1)]"
           : message.isRead
           ? "bg-white/[0.02] border-white/[0.05] hover:bg-white/[0.04]"
           : "bg-white/[0.06] border-primary-500/10 hover:border-primary-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
@@ -28,7 +28,7 @@ export default function MessageListItem({
     >
       {/* Selection Glow Bar */}
       {isSelected && (
-        <div className="absolute left-0 top-3 bottom-3 w-1 bg-primary-500 rounded-r-full shadow-[0_0_12px_rgba(88,37,216,0.8)]" />
+        <div className="absolute left-0 top-3 bottom-3 w-1 bg-primary-500 rounded-r-full shadow-[0_0_12px_rgba(234,116,54,0.8)]" />
       )}
 
       <div className="pl-2">
@@ -43,7 +43,7 @@ export default function MessageListItem({
           {!message.isRead && (
             <div className="flex items-center gap-1.5">
                <span className="text-[9px] font-black text-primary-400 uppercase bg-primary-500/10 px-1.5 py-0.5 rounded border border-primary-500/20">New</span>
-               <span className="w-2 h-2 rounded-full bg-primary-500 animate-pulse shadow-[0_0_8px_rgba(88,37,216,0.6)]" />
+               <span className="w-2 h-2 rounded-full bg-primary-500 animate-pulse shadow-[0_0_8px_rgba(234,116,54,0.6)]" />
             </div>
           )}
         </div>

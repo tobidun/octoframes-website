@@ -90,10 +90,10 @@ export default function ContactFormSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
-        className="relative w-full rounded-[32px] p-2 md:p-3 border border-[#222] bg-black shadow-[0_0_100px_rgba(88,37,216,0.4)] group"
+        className="relative w-full rounded-[32px] p-2 md:p-3 border border-[#222] bg-black shadow-[0_0_100px_rgba(234,116,54,0.4)] group"
       >
         {/* Inner Border Container */}
-        <div className="relative w-full h-full rounded-3xl border border-[#333] bg-[#050505] overflow-hidden shadow-[inset_0_0_40px_rgba(88,37,216,0.15)]">
+        <div className="relative w-full h-full rounded-3xl border border-[#333] bg-[#050505] overflow-hidden shadow-[inset_0_0_40px_rgba(234,116,54,0.15)]">
           {/* Border Bloom - perfectly inner-aligned */}
           <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-primary-500/30 pointer-events-none z-20" />
 
@@ -246,7 +246,7 @@ export default function ContactFormSection() {
               disabled={isLoading}
               whileHover={{ scale: isLoading ? 1 : 1.01 }}
               whileTap={{ scale: isLoading ? 1 : 0.99 }}
-              className="relative w-full py-4 rounded-xl bg-gradient-to-b from-primary-500 to-primary-700 text-white font-semibold text-base tracking-wide border border-white/20 shadow-[0_0_32px_rgba(88,37,216,0.4)] hover:shadow-[0_0_48px_rgba(88,37,216,0.6)] transition-all duration-300 overflow-hidden after:absolute after:inset-0 after:border-t after:border-white/40 after:rounded-[inherit] after:pointer-events-none disabled:opacity-60 disabled:cursor-not-allowed"
+              className="relative w-full py-4 rounded-xl bg-gradient-to-b from-primary-500 to-primary-700 text-white font-semibold text-base tracking-wide border border-white/20 shadow-[0_0_32px_rgba(234,116,54,0.4)] hover:shadow-[0_0_48px_rgba(234,116,54,0.6)] transition-all duration-300 overflow-hidden after:absolute after:inset-0 after:border-t after:border-white/40 after:rounded-[inherit] after:pointer-events-none disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {isLoading ? "Sending..." : "Submit Now"}
             </motion.button>

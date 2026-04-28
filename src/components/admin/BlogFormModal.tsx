@@ -66,9 +66,9 @@ export default function BlogFormModal({
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 30, opacity: 0 }}
         transition={{ duration: 0.4 }}
-        className="w-full max-w-4xl rounded-[28px] p-2 border border-[#222] bg-black shadow-[0_0_80px_rgba(88,37,216,0.4)]"
+        className="w-full max-w-4xl rounded-[28px] p-2 border border-[#222] bg-black shadow-[0_0_80px_rgba(234,116,54,0.4)]"
       >
-        <div className="rounded-2xl border border-primary-500/30 bg-[#050505] shadow-[inset_0_0_30px_rgba(88,37,216,0.1)] p-8">
+        <div className="rounded-2xl border border-primary-500/30 bg-[#050505] shadow-[inset_0_0_30px_rgba(234,116,54,0.1)] p-8">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-black text-white uppercase tracking-tighter">
               {editTarget ? "Edit Post" : "New Editorial"}
@@ -200,7 +200,7 @@ export default function BlogFormModal({
                <button
                 type="submit"
                 disabled={saving}
-                className="flex-1 py-4 rounded-xl bg-gradient-to-b from-primary-500 to-primary-700 text-white font-black text-xs uppercase tracking-widest border border-white/20 shadow-[0_0_24px_rgba(88,37,216,0.4)] hover:shadow-[0_0_40px_rgba(88,37,216,0.6)] transition-all duration-300 disabled:opacity-60 active:scale-[0.98]"
+                className="flex-1 py-4 rounded-xl bg-gradient-to-b from-primary-500 to-primary-700 text-white font-black text-xs uppercase tracking-widest border border-white/20 shadow-[0_0_24px_rgba(234,116,54,0.4)] hover:shadow-[0_0_40px_rgba(234,116,54,0.6)] transition-all duration-300 disabled:opacity-60 active:scale-[0.98]"
               >
                 {saving ? "Transmitting..." : editTarget ? "Update Post" : "Publish Post"}
               </button>

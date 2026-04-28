@@ -13,7 +13,7 @@ export default function Footer() {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-[60%] pointer-events-none z-10"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(140,80,255,1) 0%, rgba(88,37,216,0.8) 40%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(236,146,82,1) 0%, rgba(234,116,54,0.8) 40%, transparent 100%)",
           filter: "blur(8px)",
         }}
       />
@@ -45,7 +45,7 @@ export default function Footer() {
             conic-gradient(
               from 0deg at 50% 0%, 
               transparent 100deg, 
-              rgba(88,37,216,0.2) 180deg, 
+              rgba(234,116,54,0.2) 180deg, 
               transparent 260deg
             )
           `,
@@ -58,9 +58,10 @@ export default function Footer() {
         className="absolute bottom-0 left-0 right-0 h-[85%] pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 100%, rgba(88,37,216,0.25) 0%, transparent 100%)",
+            "radial-gradient(ellipse at 50% 100%, rgba(234,116,54,0.25) 0%, transparent 100%)",
           maskImage: "linear-gradient(to bottom, transparent 0%, black 25%)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 25%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 25%)",
         }}
       />
 
@@ -69,7 +70,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-12">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center shadow-[0_0_20px_rgba(88,37,216,0.5)]">
+              <div className="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center shadow-[0_0_20px_rgba(234,116,54,0.5)]">
                 <svg
                   className="w-5 h-5 text-white"
                   fill="currentColor"
@@ -85,7 +86,7 @@ export default function Footer() {
 
             <div className="space-y-2 text-gray-400">
               <p className="text-[13px] leading-relaxed">
-                Made remotely with <span className="text-primary-500">💜</span>{" "}
+                Made remotely with <span className="text-primary-500">🧡</span>{" "}
                 and passion
               </p>
               <p className="text-white text-[13px] font-medium">
@@ -100,16 +101,18 @@ export default function Footer() {
               Template Pages
             </h4>
             <ul className="space-y-4">
-              {["Home", "About", "Portfolio", "Blog", "Contact", "FAQ"].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors text-[16px]"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
+              {["Home", "About", "Portfolio", "Blog", "Contact", "FAQ"].map(
+                (item) => (
+                  <li key={item}>
+                    <a
+                      href="#"
+                      className="text-gray-400 hover:text-white transition-colors text-[16px]"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 
@@ -142,7 +145,7 @@ export default function Footer() {
                   placeholder="Enter Your Email..."
                   className="bg-transparent border-none focus:ring-0 text-[14px] px-5 w-full text-white placeholder:text-gray-600 h-10"
                 />
-                <button className="relative bg-gradient-to-b from-primary-500 to-primary-700 text-white text-[12px] font-bold px-6 h-10 rounded-full border border-white/20 shadow-[0_4px_15px_rgba(88,37,216,0.3)] hover:shadow-[0_4px_25px_rgba(88,37,216,0.5)] transition-all after:absolute after:inset-0 after:border-t after:border-white/30 after:rounded-full after:pointer-events-none whitespace-nowrap">
+                <button className="relative bg-gradient-to-b from-primary-500 to-primary-700 text-white text-[12px] font-bold px-6 h-10 rounded-full border border-white/20 shadow-[0_4px_15px_rgba(234,116,54,0.3)] hover:shadow-[0_4px_25px_rgba(234,116,54,0.5)] transition-all after:absolute after:inset-0 after:border-t after:border-white/30 after:rounded-full after:pointer-events-none whitespace-nowrap">
                   Subscribe Us
                 </button>
               </div>

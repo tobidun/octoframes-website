@@ -102,9 +102,9 @@ export default function PortfolioFormModal({
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 30, opacity: 0 }}
         transition={{ duration: 0.4 }}
-        className="w-full max-w-5xl rounded-[28px] p-2 border border-[#222] bg-black shadow-[0_0_80px_rgba(88,37,216,0.4)]"
+        className="w-full max-w-5xl rounded-[28px] p-2 border border-[#222] bg-black shadow-[0_0_80px_rgba(234,116,54,0.4)]"
       >
-        <div className="rounded-2xl border border-primary-500/30 bg-[#050505] shadow-[inset_0_0_30px_rgba(88,37,216,0.1)] p-8">
+        <div className="rounded-2xl border border-primary-500/30 bg-[#050505] shadow-[inset_0_0_30px_rgba(234,116,54,0.1)] p-8">
           <div className="flex flex-col lg:flex-row gap-10">
             {/* Left Side: Form Controls */}
             <div className="flex-1">
@@ -206,7 +206,7 @@ export default function PortfolioFormModal({
               <button
                 type="submit"
                 disabled={saving}
-                className="w-full py-4 rounded-md bg-gradient-to-b from-primary-500 to-primary-700 text-white font-bold text-sm border border-white/20 shadow-[0_0_24px_rgba(88,37,216,0.4)] hover:shadow-[0_0_40px_rgba(88,37,216,0.6)] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed active:scale-[0.98]"
+                className="w-full py-4 rounded-md bg-gradient-to-b from-primary-500 to-primary-700 text-white font-bold text-sm border border-white/20 shadow-[0_0_24px_rgba(234,116,54,0.4)] hover:shadow-[0_0_40px_rgba(234,116,54,0.6)] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed active:scale-[0.98]"
               >
                 {saving ? "Transmitting..." : editTarget ? "Commit Changes" : "Deploy Project"}
               </button>

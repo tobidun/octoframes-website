@@ -102,7 +102,7 @@ export default function PartnersSection() {
       <div 
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full pointer-events-none z-0"
         style={{ 
-          background: "linear-gradient(to bottom, rgba(140,80,255,0.4) 0%, rgba(88,37,216,0) 100%)",
+          background: "linear-gradient(to bottom, rgba(236,146,82,0.4) 0%, rgba(234,116,54,0) 100%)",
           filter: "blur(40px)"
         }}
       />
